@@ -2,22 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
+use App\Post;
 use App\Repositories\Repository;
 use Illuminate\Http\Request;
 
-class TaskController extends Controller
+class PostController extends Controller
 {
-     // space that we can use the repository from
+
+    // space that we can use the repository from
     protected $model;
 
-    public function __construct(Task $task)
+
+    public function __construct(Post $post)
     {
        // set the model
-       $this->model = new Repository($task);
+       $this->model = new Repository($post);
     }
 
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -25,6 +27,16 @@ class TaskController extends Controller
     public function index()
     {
         return $this->model->all();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -52,6 +64,17 @@ class TaskController extends Controller
     public function show($id)
     {
         return $this->model->show($id);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Task  $task
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Task $task)
+    {
+        //
     }
 
     /**

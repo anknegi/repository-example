@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/post', function () {
+    return view('post');
+});
+
 Route::prefix('api')->group(function() {
     Route::resource('tasks', 'TaskController');
+    Route::resource('posts', 'PostController');
 });

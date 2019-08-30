@@ -21,6 +21,13 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('task-list', require('./components/TaskLists.vue').default);
+Vue.component('post-list', require('./components/PostLists.vue').default);
+
+// register modal component
+Vue.component('modal', {
+    template: '#modal-template'
+  })
+  
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29,4 +36,7 @@ Vue.component('task-list', require('./components/TaskLists.vue').default);
 
 const app = new Vue({
     el: '#app',
+    data: {
+        showModal: false
+      }
 });
